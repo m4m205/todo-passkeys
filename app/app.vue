@@ -29,33 +29,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <UContainer class="min-h-screen flex flex-col justify-center">
-    <div class="mb-2 text-right">
-      <UButton
-        square
-        variant="ghost"
-        color="black"
-        :icon="$colorMode.preference === 'dark' ? 'i-heroicons-moon' : 'i-heroicons-sun'"
-        @click="toggleColorMode"
-      />
-    </div>
-
+  <NuxtLayout>
     <NuxtPage />
-
-    <footer class="text-center mt-2">
-      <p class="text-sm text-gray-500 dark:text-gray-400">
-        {{ $t('welcome') }} ❤️ by
-        <a
-          href="https://almorahlee.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          Mahmoud
-        </a>
-      </p>
-    </footer>
-  </UContainer>
+  </NuxtLayout>
   <UNotifications />
 </template>
 

@@ -43,21 +43,17 @@ useSeoMeta({
     <NuxtPage />
 
     <footer class="text-center mt-2">
-      <NuxtLink
-        href="https://github.com/atinux/todo-passkeys"
-        target="_blank"
-        class="text-sm text-gray-500 hover:text-gray-700"
-      >
-        source code
-      </NuxtLink>
-      ·
-      <NuxtLink
-        href="https://twitter.com/atinux"
-        target="_blank"
-        class="text-sm text-gray-500 hover:text-gray-700"
-      >
-        @atinux
-      </NuxtLink>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        {{ $t('welcome') }} ❤️ by
+        <a
+          href="https://almorahlee.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Mahmoud
+        </a>
+      </p>
     </footer>
   </UContainer>
   <UNotifications />

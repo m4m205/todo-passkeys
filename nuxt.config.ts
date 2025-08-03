@@ -3,8 +3,35 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@nuxt/ui',
     'nuxt-auth-utils',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+        dir: 'ltr'
+      },
+      {
+        code: 'ar',
+        name: 'Arabic',
+        file: 'ar.json',
+        dir: 'rtl'
+      }
+    ],
+    defaultLocale: 'ar',
+    langDir: 'locales/',
+    lazy: true,
+    strategy: 'no_prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: false,
+      fallbackLocale: 'ar'
+    }
+  },
   devtools: {
     enabled: true
   },

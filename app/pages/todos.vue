@@ -82,8 +82,9 @@ async function deleteTodo(todo) {
         />
         <v-btn
           type="submit"
+          color="primary"
+          :disabled="loading || newTodo.trim().length === 0"
           :loading="loading"
-          :disabled="newTodo.trim().length === 0"
           icon
         >
           <v-icon>mdi-plus</v-icon>

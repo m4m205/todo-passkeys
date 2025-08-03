@@ -59,12 +59,48 @@ export default defineNuxtConfig({
       scan: true
     }
   },
-    vuetify: {
+  vuetify: {
     moduleOptions: {
       /* module specific options */
     },
     vuetifyOptions: {
-      /* vuetify options */
+      theme: {
+        defaultTheme: 'light',
+        themes: {
+          light: {
+            dark: false,
+            colors: {
+              background: '#FAFAFA',
+              surface: '#FFFFFF',
+              primary: '#1976D2',
+              secondary: '#424242',
+              accent: '#82B1FF',
+              error: '#FF5252',
+              info: '#2196F3',
+              success: '#4CAF50',
+              warning: '#FFC107',
+              'on-background': '#181818',
+              'on-surface': '#181818',
+            }
+          },
+          dark: {
+            dark: true,
+            colors: {
+              background: '#181818',
+              surface: '#232323',
+              primary: '#90CAF9',
+              secondary: '#B0BEC5',
+              accent: '#FF4081',
+              error: '#FF5252',
+              info: '#2196F3',
+              success: '#4CAF50',
+              warning: '#FFC107',
+              'on-background': '#FAFAFA',
+              'on-surface': '#FAFAFA',
+            }
+          }
+        }
+      }
     }
   }
 })

@@ -4,7 +4,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxt/eslint',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    'vuetify-nuxt-module'
   ],
   i18n: {
     locales: [
@@ -56,6 +57,14 @@ export default defineNuxtConfig({
   icon: {
     clientBundle: {
       scan: true
+    }
+  },
+    vuetify: {
+    moduleOptions: {
+      /* module specific options */
+    },
+    vuetifyOptions: {
+      /* vuetify options */
     }
   }
 })

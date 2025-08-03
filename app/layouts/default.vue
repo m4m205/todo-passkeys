@@ -13,12 +13,18 @@
       </div>
       <div class="flex items-center gap-4">
         AR
-        <UToggle
+        <v-switch
           v-model="isArabic"
           :on-label="$t('ar')"
           :off-label="$t('en')"
           @change="switchLocale"
         />
+        <!-- <UToggle
+          v-model="isArabic"
+          :on-label="$t('ar')"
+          :off-label="$t('en')"
+          @change="switchLocale"
+        /> -->
         EN
         <UButton
           square

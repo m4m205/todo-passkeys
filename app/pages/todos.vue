@@ -7,7 +7,6 @@ const newTodo = ref('')
 const newTodoInput = ref(null)
 
 const toast = useToast()
-const { user, clear } = useUserSession()
 const { data: todos, refresh } = await useFetch('/api/todos')
 
 async function addTodo() {
@@ -58,15 +57,6 @@ async function deleteTodo(todo) {
   toast.add({ title: `Todo "${todo.title}" deleted.` })
 }
 
-const items = [[{
-  slot: 'account',
-  label: '',
-  disabled: true
-}], [{
-  label: 'Logout',
-  icon: 'i-heroicons-arrow-left-on-rectangle',
-  click: clear
-}]]
 </script>
 
 <template>
@@ -77,27 +67,6 @@ const items = [[{
           Todo List
         </NuxtLink>
       </h3>
-
-      <UDropdown
-        v-if="user"
-        :items="items"
-      >
-        <UButton
-          color="gray"
-          icon="i-heroicons-user-circle"
-          trailing-icon="i-heroicons-chevron-down-20-solid"
-          variant="ghost"
-        >
-          {{ user.name }}
-        </UButton>
-        <template #account>
-          <div class="flex-1 min-w-0 text-left">
-            <p>
-              Signed in as {{ user?.username }}
-            </p>
-          </div>
-        </template>
-      </UDropdown>
     </template>
 
     <div class="flex items-center gap-2">

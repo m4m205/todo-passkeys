@@ -19,11 +19,11 @@ useHead({
 
 useSeoMeta({
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  title: 'Todo with Passkeys',
+  title: 'TaskyDoo',
   description:
-    'A Nuxt demo hosted on NuxtHub using passkeys for authentication and queyring a Cloudflare D1 database',
+    'simple app with passkeys authentication',
   ogImage: '/social-image.png',
-  twitterImage: '/social-image.png',
+  twitterImage: '',
   twitterCard: 'summary_large_image'
 })
 </script>

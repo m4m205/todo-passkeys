@@ -3,30 +3,26 @@ const { loggedIn } = useUserSession()
 </script>
 
 <template>
-  <UCard>
-    <template #header>
+  <v-card class="pa-4">
+    <v-card-title>
       <h3 class="text-lg font-semibold leading-6">
         Todo List
       </h3>
+    </v-card-title>
+    <v-card-text>
       <div v-if="!loggedIn">
-        <UButton
-          to="/auth"
-          icon="i-ph-fingerprint"
-          label="Authenticate"
-          color="black"
-        />
+        <v-btn color="primary" to="/auth" prepend-icon="mdi-fingerprint">
+          Authenticate
+        </v-btn>
       </div>
-      <UButton
-        v-else
-        to="/todos"
-        icon="i-heroicons-list-bullet"
-        label="Go to Todos"
-        color="black"
-      />
-    </template>
-    <p class="font-medium">
-      Welcome to <span class="font-semibold text-primary-500">TaskyDoo</span>.
-    </p>
- 
-  </UCard>
+      <div v-else>
+        <v-btn color="primary" to="/todos" prepend-icon="mdi-format-list-bulleted">
+          Go to Todos
+        </v-btn>
+      </div>
+      <p class="font-medium mt-4">
+        Welcome to <span class="font-semibold text-primary-500">TaskyDoo</span>.
+      </p>
+    </v-card-text>
+  </v-card>
 </template>

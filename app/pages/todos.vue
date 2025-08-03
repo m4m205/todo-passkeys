@@ -6,7 +6,7 @@ const loading = ref(false)
 const newTodo = ref('')
 const newTodoInput = ref(null)
 
-const toast = useToast()
+const emit = defineEmits(['notify'])
 const { data: todos, refresh } = await useFetch('/api/todos')
 
 async function addTodo() {
@@ -24,7 +24,7 @@ async function addTodo() {
     })
     todos.value.push(todo)
     await refresh()
-    toast.add({ title: `Todo "${todo.title}" created.` })
+    emit('notify', { text: `Todo "${todo.title}" created.`, color: 'success' })
     newTodo.value = ''
     nextTick(() => {
       newTodoInput.value?.input?.focus()
@@ -33,7 +33,7 @@ async function addTodo() {
   catch (err) {
     if (err.data?.data?.issues) {
       const title = err.data.data.issues.map(issue => issue.message).join('\n')
-      toast.add({ title, color: 'red' })
+      emit('notify', { text: title, color: 'error' })
     }
   }
   loading.value = false
@@ -54,66 +54,66 @@ async function deleteTodo(todo) {
   await $fetch(`/api/todos/${todo.id}`, { method: 'DELETE' })
   todos.value = todos.value.filter(t => t.id !== todo.id)
   await refresh()
-  toast.add({ title: `Todo "${todo.title}" deleted.` })
+  emit('notify', { text: `Todo "${todo.title}" deleted.`, color: 'success' })
 }
 
 </script>
 
 <template>
-  <UCard @submit.prevent="addTodo">
-    <template #header>
+  <v-card class="pa-4">
+    <v-card-title>
       <h3 class="text-lg font-semibold leading-6">
         <NuxtLink to="/">
           Todo List
         </NuxtLink>
       </h3>
-    </template>
-
-    <div class="flex items-center gap-2">
-      <UInput
-        ref="newTodoInput"
-        v-model="newTodo"
-        name="todo"
-        :disabled="loading"
-        class="flex-1"
-        placeholder="Make a Nuxt demo"
-        autocomplete="off"
-        autofocus
-        :ui="{ wrapper: 'flex-1' }"
-      />
-
-      <UButton
-        type="submit"
-        icon="i-heroicons-plus-20-solid"
-        :loading="loading"
-        :disabled="newTodo.trim().length === 0"
-      />
-    </div>
-
-    <ul class="divide-y divide-gray-200 dark:divide-gray-800">
-      <li
-        v-for="todo of todos"
-        :key="todo.id"
-        class="flex items-center gap-4 py-2"
-      >
-        <span
-          class="flex-1 font-medium"
-          :class="[todo.completed ? 'line-through text-gray-500' : '']"
-        >{{ todo.title }}</span>
-
-        <UToggle
-          :model-value="Boolean(todo.completed)"
-          @update:model-value="toggleTodo(todo)"
+    </v-card-title>
+    <v-card-text>
+      <form class="flex items-center gap-2" @submit.prevent="addTodo">
+        <v-text-field
+          ref="newTodoInput"
+          v-model="newTodo"
+          name="todo"
+          :disabled="loading"
+          class="flex-1"
+          placeholder="Make a Nuxt demo"
+          autocomplete="off"
+          autofocus
         />
-
-        <UButton
-          color="red"
-          variant="soft"
-          size="2xs"
-          icon="i-heroicons-x-mark-20-solid"
-          @click="deleteTodo(todo)"
-        />
-      </li>
-    </ul>
-  </UCard>
+        <v-btn
+          type="submit"
+          :loading="loading"
+          :disabled="newTodo.trim().length === 0"
+          icon
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </form>
+      <v-list class="mt-4">
+        <v-list-item
+          v-for="todo of todos"
+          :key="todo.id"
+          class="py-2"
+        >
+          <v-list-item-content>
+            <div class="flex items-center gap-4 w-full">
+              <span class="flex-1 font-medium" :class="[todo.completed ? 'line-through text-gray-500' : '']">
+                {{ todo.title }}
+              </span>
+              <v-switch
+                v-model="todo.completed"
+                @change="toggleTodo(todo)"
+                hide-details
+                color="primary"
+                class="shrink-0"
+              />
+              <v-btn icon color="red" @click="deleteTodo(todo)">
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </div>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-card-text>
+  </v-card>
 </template>

@@ -1,75 +1,53 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- Top Bar -->
-    <UHeader class="flex items-center justify-between px-4 py-2 border-b">
-      <div class="flex items-center gap-2">
-        <UButton
-          variant="ghost"
-          icon="i-heroicons-bars-3"
-          label="Menu"
-          @click="toggleSidebar"
-          aria-label="Toggle sidebar"
-        />
-      </div>
-      <div class="flex items-center gap-4">
-        AR
-        <v-switch
-          v-model="isArabic"
-          :on-label="$t('ar')"
-          :off-label="$t('en')"
-          @change="switchLocale"
-        />
-        <!-- <UToggle
-          v-model="isArabic"
-          :on-label="$t('ar')"
-          :off-label="$t('en')"
-          @change="switchLocale"
-        /> -->
-        EN
-        <UButton
-          square
-          variant="ghost"
-          color="black"
-          :icon="$colorMode.preference === 'dark' ? 'i-heroicons-moon' : 'i-heroicons-sun'"
-          @click="toggleColorMode"
-        />
-              <UDropdown
-        v-if="user"
-        :items="items"
-      >
-        <UButton
-          color="gray"
-          icon="i-heroicons-user-circle"
-          trailing-icon="i-heroicons-chevron-down-20-solid"
-          variant="ghost"
-        >
-          {{ user.name }}
-        </UButton>
-        <template #account>
-          <div class="flex-1 min-w-0 text-left">
-            <p>
-              Signed in as {{ user?.username }}
-            </p>
-          </div>
+    <v-app-bar app flat class="border-b" :theme="theme.global.name.value">
+      <v-app-bar-nav-icon @click="toggleSidebar" />
+      <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
+      <v-spacer />
+      <v-switch
+        v-model="isArabic"
+        :label="isArabic ? $t('ar') : $t('en')"
+        @change="switchLocale"
+        hide-details
+        class="mx-2"
+      />
+      <v-btn icon @click="toggleColorMode">
+        <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-moon-waning-crescent' : 'mdi-white-balance-sunny' }}</v-icon>
+      </v-btn>
+      <v-menu v-if="user" offset-y>
+        <template #activator="{ props }">
+          <v-btn v-bind="props" icon>
+            <v-icon>mdi-account-circle</v-icon>
+          </v-btn>
         </template>
-      </UDropdown>
-      </div>
-    </UHeader>
+        <v-list>
+          <v-list-item>
+            <v-list-item-title>
+              {{ user.name }}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              Signed in as {{ user?.username }}
+            </v-list-item-subtitle>
+          </v-list-item>
+          <v-list-item @click="clear">
+            <v-list-item-title>Logout</v-list-item-title>
+            <v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
 
     <div class="flex flex-1">
       <!-- Sidebar (desktop and mobile) -->
-      <UDashboardSidebar v-model="sidebarOpen" class="w-56 border-r bg-gray-50 dark:bg-gray-900" :class="{ 'hidden': !sidebarOpen }" mode="overlay">
-        <div class="ml-6 py-6">
-          <UNav vertical :links="navLinks">Home</UNav>
-        </div>
-        <div class="ml-6 mb-6">
-          <UNav vertical :links="navLinks">Todos</UNav>
-        </div>
-        <div class="ml-6 pb-6">
-          <UNav vertical :links="navLinks">About</UNav>
-        </div>
-
-      </UDashboardSidebar>
+      <v-navigation-drawer v-model="sidebarOpen" app width="220" class="border-r">
+        <v-list nav>
+          <v-list-item v-for="link in navLinks" :key="link.label" :to="link.to" link>
+            <v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
+            <v-list-item-title>{{ link.label }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
       <!-- Main Content -->
       <main class="flex-1 p-4">
         <slot />
@@ -95,21 +73,13 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useColorMode } from '#imports'
+import { useTheme } from 'vuetify'
 
 const { user, clear } = useUserSession()
 const sidebarOpen = ref(false)
 const { locale } = useI18n()
 const colorMode = useColorMode()
-
-const items = [[{
-  slot: 'account',
-  label: '',
-  disabled: true
-}], [{
-  label: 'Logout',
-  icon: 'i-heroicons-arrow-left-on-rectangle',
-  click: clear
-}]]
+const theme = useTheme()
 
 const isArabic = computed({
   get: () => locale.value === 'ar',
@@ -131,8 +101,8 @@ function toggleColorMode() {
 }
 
 const navLinks = [
-  { label: 'Todos', icon: 'i-heroicons-list-bullet', to: '/todos' },
-  { label: 'Auth', icon: 'i-heroicons-user', to: '/auth' }
+  { label: 'Todos', icon: 'mdi-format-list-bulleted', to: '/todos' },
+  { label: 'Auth', icon: 'mdi-account', to: '/auth' }
 ]
 </script>
 

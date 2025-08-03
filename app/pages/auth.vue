@@ -2,7 +2,7 @@
 definePageMeta({
   middleware: 'guest'
 })
-const toast = useToast()
+const emit = defineEmits(['notify'])
 const { fetch } = useUserSession()
 const { register, authenticate } = useWebAuthn()
 const username = ref('')
@@ -15,11 +15,7 @@ async function signUp() {
     .then(fetch)
     .then(async () => await navigateTo('/todos'))
     .catch((error) => {
-      toast.add({
-        title: error.data?.message || error.message,
-        description: error.data?.data?.issues[0]?.message || error.data?.data,
-        color: 'red'
-      })
+      emit('notify', { text: error.data?.message || error.message, color: 'error' })
     })
 }
 async function signIn() {
@@ -27,80 +23,54 @@ async function signIn() {
     .then(fetch)
     .then(async () => await navigateTo('/todos'))
     .catch((error) => {
-      toast.add({
-        title: error.data?.message || error.message,
-        description: error.data?.data,
-        color: 'red'
-      })
+      emit('notify', { text: error.data?.message || error.message, color: 'error' })
     })
 }
 </script>
 
 <template>
-  <UCard>
-    <template #header>
+  <v-card class="pa-4">
+    <v-card-title>
       <h3 class="text-lg font-semibold leading-6">
         Todo List
       </h3>
-      <UButton
-        to="/"
-        icon="i-ph-arrow-left"
-        label="Back home"
-        color="gray"
-        variant="ghost"
-      />
-    </template>
-    <div class="flex gap-2 justify-between">
-      <form
-        class="flex flex-col gap-2"
-        @submit.prevent="signUp"
-      >
-        <UFormGroup
-          label="Username"
-          required
-        >
-          <UInput
+      <v-btn to="/" color="grey" variant="text" prepend-icon="mdi-arrow-left">
+        Back home
+      </v-btn>
+    </v-card-title>
+    <v-card-text>
+      <div class="flex gap-2 justify-between">
+        <v-form class="flex flex-col gap-2" @submit.prevent="signUp">
+          <v-text-field
             v-model="username"
             name="username"
+            label="Username"
+            required
           />
-        </UFormGroup>
-        <UFormGroup
-          label="Full Name"
-          required
-        >
-          <UInput
+          <v-text-field
             v-model="name"
             name="name"
+            label="Full Name"
+            required
           />
-        </UFormGroup>
-        <UButton
-          type="submit"
-          color="black"
-          label="Sign up"
-          :disabled="!username"
-        />
-      </form>
-      <UDivider
-        orientation="vertical"
-        label="or"
-      />
-      <form
-        class="flex flex-col gap-2"
-        @submit.prevent="signIn"
-      >
-        <UFormGroup
-          label="Username"
-        >
-          <UInput
+          <v-btn
+            type="submit"
+            color="primary"
+            :disabled="!username"
+          >Sign up</v-btn>
+        </v-form>
+        <v-divider vertical class="mx-4">or</v-divider>
+        <v-form class="flex flex-col gap-2" @submit.prevent="signIn">
+          <v-text-field
             v-model="username"
+            label="Username"
           />
-        </UFormGroup>
-        <UButton
-          type="submit"
-          color="black"
-          label="Sign in"
-        />
-      </form>
-    </div>
-  </UCard>
+          <v-btn
+            type="submit"
+            color="primary"
+          >Sign in</v-btn>
+        </v-form>
+      </div>
+    </v-card-text>
+  </v-card>
 </template>

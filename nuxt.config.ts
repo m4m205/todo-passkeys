@@ -64,6 +64,13 @@ export default defineNuxtConfig({
       /* module specific options */
     },
     vuetifyOptions: {
+      locale: {
+        rtl: {
+          ar: true
+        },
+        fallback: 'ar',
+        locale: 'ar',
+      },
       theme: {
         defaultTheme: 'light',
         themes: {

@@ -60,61 +60,63 @@ async function deleteTodo(todo) {
 </script>
 
 <template>
-  <v-card class="pa-4">
-    <v-card-title>
-      <h3 class="text-lg font-semibold leading-6">
-        <NuxtLink to="/">
-          Todo List
-        </NuxtLink>
-      </h3>
-    </v-card-title>
-    <v-card-text>
-      <form class="flex items-center gap-2" @submit.prevent="addTodo">
-        <v-text-field
-          ref="newTodoInput"
-          v-model="newTodo"
-          name="todo"
-          :disabled="loading"
-          class="flex-1"
-          placeholder="Make a Nuxt demo"
-          autocomplete="off"
-          autofocus
-        />
-        <v-btn
-          type="submit"
-          color="primary"
-          :disabled="loading || newTodo.trim().length === 0"
-          :loading="loading"
-          icon
-        >
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </form>
-      <v-list class="mt-4">
-        <v-list-item
-          v-for="todo of todos"
-          :key="todo.id"
-          class="py-2"
-        >
-          <v-list-item-content>
-            <div class="flex items-center gap-4 w-full">
-              <span class="flex-1 font-medium" :class="[todo.completed ? 'line-through text-gray-500' : '']">
-                {{ todo.title }}
-              </span>
-              <v-switch
-                v-model="todo.completed"
-                @change="toggleTodo(todo)"
-                hide-details
-                color="primary"
-                class="shrink-0"
-              />
-              <v-btn icon color="red" @click="deleteTodo(todo)">
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
-            </div>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-card-text>
-  </v-card>
+  <div class="d-flex justify-center items-center min-h-screen">
+    <v-card class="pa-4" max-width="1200" min-width="600" mx-auto>
+      <v-card-title>
+        <h3 class="text-lg font-semibold leading-6">
+          <NuxtLink to="/">
+            Todo List
+          </NuxtLink>
+        </h3>
+      </v-card-title>
+      <v-card-text>
+        <form class="flex items-center gap-2" @submit.prevent="addTodo">
+          <v-text-field
+            ref="newTodoInput"
+            v-model="newTodo"
+            name="todo"
+            :disabled="loading"
+            class="flex-1"
+            placeholder="Make a Nuxt demo"
+            autocomplete="off"
+            autofocus
+          />
+          <v-btn
+            type="submit"
+            color="primary"
+            :disabled="loading || newTodo.trim().length === 0"
+            :loading="loading"
+            icon
+          >
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </form>
+        <v-list class="mt-4">
+          <v-list-item
+            v-for="todo of todos"
+            :key="todo.id"
+            class="py-2"
+          >
+            <v-list-item-content>
+              <div class="flex items-center gap-4 w-full">
+                <span class="flex-1 font-medium" :class="[todo.completed ? 'line-through text-gray-500' : '']">
+                  {{ todo.title }}
+                </span>
+                <v-switch
+                  v-model="todo.completed"
+                  @change="toggleTodo(todo)"
+                  hide-details
+                  color="primary"
+                  class="shrink-0"
+                />
+                <v-btn icon color="red" @click="deleteTodo(todo)">
+                  <v-icon>mdi-close</v-icon>
+                </v-btn>
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card-text>
+    </v-card>
+  </div>
 </template>

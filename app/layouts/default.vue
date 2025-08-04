@@ -50,7 +50,9 @@
       </v-navigation-drawer>
       <!-- Main Content -->
       <main class="flex-1 p-4">
-        <slot />
+        <v-container fluid>
+          <slot />
+        </v-container>
       </main>
     </div>
     <footer class="text-center mt-2">

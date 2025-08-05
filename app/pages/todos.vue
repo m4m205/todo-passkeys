@@ -61,7 +61,7 @@ async function deleteTodo(todo) {
 
 <template>
   <div class="d-flex justify-center items-center min-h-screen">
-    <v-card class="pa-4" max-width="1200" min-width="600" mx-auto>
+    <v-card class="pa-4" max-width="800" min-width="400" mx-auto>
       <v-card-title>
         <h3 class="text-lg font-semibold leading-6">
           <NuxtLink to="/">

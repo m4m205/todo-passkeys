@@ -40,7 +40,7 @@
 
     <div class="flex flex-1">
       <!-- Sidebar (desktop and mobile) -->
-      <v-navigation-drawer v-model="sidebarOpen" app width="220" class="border-r">
+      <v-navigation-drawer v-model="sidebarOpen" app width="220" class="border-r" temporary>
         <v-list nav>
           <v-list-item v-for="link in navLinks" :key="link.label" :to="link.to" link>
             <v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
@@ -49,7 +49,7 @@
         </v-list>
       </v-navigation-drawer>
       <!-- Main Content -->
-      <main class="flex-1 p-4">
+      <main class="flex-1 p-4 overflow-auto">
         <v-container fluid>
           <slot />
         </v-container>

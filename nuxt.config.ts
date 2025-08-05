@@ -72,7 +72,8 @@ export default defineNuxtConfig({
         locale: 'ar',
       },
       theme: {
-        defaultTheme: 'light',
+        defaultTheme: 'dark',
+        variations: false,
         themes: {
           light: {
             dark: false,

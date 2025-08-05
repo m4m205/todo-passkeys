@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 definePageMeta({
   middleware: 'guest'
 })
@@ -28,9 +27,6 @@ async function signIn() {
     })
 }
 
-onMounted(() => {
-    signIn()
-})
 </script>
 
 <template>

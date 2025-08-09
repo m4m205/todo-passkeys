@@ -30,10 +30,10 @@ async function signIn() {
 </script>
 
 <template>
-  <div class="d-flex justify-center items-center min-h-screen">
+  <div class="d-flex justify-center align-center fill-height">
     <v-card class="pa-4" max-width="800" min-width="400">
       <v-card-title>
-        <h3 class="text-lg font-semibold leading-6">
+        <h3 class="text-h6">
           Todo List
         </h3>
         <v-btn to="/" color="grey" variant="text" prepend-icon="mdi-arrow-left">
@@ -42,7 +42,7 @@ async function signIn() {
       </v-card-title>
       <v-card-text>
         <div class="d-flex flex-column gap-2">
-          <v-form class="flex flex-col gap-2" @submit.prevent="signUp">
+          <v-form class="d-flex flex-column gap-2" @submit.prevent="signUp">
             <v-text-field
               v-model="username"
               name="username"
@@ -62,7 +62,7 @@ async function signIn() {
             >Sign up</v-btn>
           </v-form>
           <v-divider vertical class="mx-4">or</v-divider>
-          <v-form class="flex flex-col gap-2" @submit.prevent="signIn">
+          <v-form class="d-flex flex-column gap-2" @submit.prevent="signIn">
             <v-text-field
               v-model="username"
               label="Username"

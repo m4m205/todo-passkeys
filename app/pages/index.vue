@@ -5,7 +5,7 @@ const { loggedIn } = useUserSession()
 <template>
   <v-card class="pa-4">
     <v-card-title>
-      <h3 class="text-lg font-semibold leading-6">
+      <h3 class="text-h6">
         Todo List
       </h3>
     </v-card-title>
@@ -20,8 +20,8 @@ const { loggedIn } = useUserSession()
           Go to Todos
         </v-btn>
       </div>
-      <p class="font-medium mt-4">
-        Welcome to <span class="font-semibold text-primary-500">TaskyDoo</span>.
+      <p class="text-body-1 mt-4">
+        Welcome to <span class="text-primary font-weight-bold">TaskyDoo</span>.
       </p>
     </v-card-text>
   </v-card>

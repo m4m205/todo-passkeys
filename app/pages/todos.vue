@@ -60,17 +60,17 @@ async function deleteTodo(todo) {
 </script>
 
 <template>
-  <div class="d-flex justify-center items-center min-h-screen">
+  <div class="d-flex justify-center align-center fill-height">
     <v-card class="pa-4" max-width="800" min-width="400" mx-auto>
       <v-card-title>
-        <h3 class="text-lg font-semibold leading-6">
-          <NuxtLink to="/">
+        <h3 class="text-h6">
+          <NuxtLink to="/" class="text-decoration-none">
             Todo List
           </NuxtLink>
         </h3>
       </v-card-title>
       <v-card-text>
-        <form class="flex items-center gap-2" @submit.prevent="addTodo">
+        <form class="d-flex align-center gap-2" @submit.prevent="addTodo">
           <v-text-field
             ref="newTodoInput"
             v-model="newTodo"
@@ -98,8 +98,8 @@ async function deleteTodo(todo) {
             class="py-2"
           >
             <v-list-item-content>
-              <div class="flex items-center gap-4 w-full">
-                <span class="flex-1 font-medium" :class="[todo.completed ? 'line-through text-gray-500' : '']">
+              <div class="d-flex align-center gap-4 w-100">
+                <span class="text-body-1 flex-grow-1" :class="[todo.completed ? 'text-decoration-line-through text-grey-darken-1' : '']">
                   {{ todo.title }}
                 </span>
                 <v-switch
@@ -107,7 +107,7 @@ async function deleteTodo(todo) {
                   @change="toggleTodo(todo)"
                   hide-details
                   color="primary"
-                  class="shrink-0"
+                  class="flex-shrink-0"
                 />
                 <v-btn icon color="red" @click="deleteTodo(todo)">
                   <v-icon>mdi-close</v-icon>

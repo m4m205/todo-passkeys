@@ -1,12 +1,17 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxthub/core',
-    '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
-    'vuetify-nuxt-module'
+    'vuetify-nuxt-module',
+    '@nuxtjs/color-mode'
   ],
+  colorMode: {
+    classSuffix: '',
+    preference: 'dark',
+    fallback: 'dark'
+  },
   i18n: {
     locales: [
       {
@@ -73,7 +78,6 @@ export default defineNuxtConfig({
       },
       theme: {
         defaultTheme: 'dark',
-        variations: false,
         themes: {
           light: {
             dark: false,

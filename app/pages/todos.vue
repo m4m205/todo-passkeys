@@ -8,7 +8,12 @@ const newTodoInput = ref(null)
 const { mobile } = useDisplay()
 
 const emit = defineEmits(['notify'])
-const { data: todos, refresh } = await useFetch('/api/todos')
+const { data: todos, refresh } = await useFetch('/api/todos', {
+  transform: (todos) => todos.map(todo => ({
+    ...todo,
+    completed: Boolean(todo.completed)
+  }))
+})
 
 async function addTodo() {
   if (!newTodo.value.trim()) return
@@ -41,11 +46,10 @@ async function addTodo() {
 }
 
 async function toggleTodo(todo) {
-  todo.completed = Number(!todo.completed)
   await $fetch(`/api/todos/${todo.id}`, {
     method: 'PATCH',
     body: {
-      completed: todo.completed
+      completed: Number(todo.completed)
     }
   })
   await refresh()
@@ -105,7 +109,7 @@ async function deleteTodo(todo) {
                   {{ todo.title }}
                 </span>
                 <v-switch
-                  :value="Boolean(todo.completed)"
+                  v-model="todo.completed"
                   @change="toggleTodo(todo)"
                   hide-details
                   color="primary"

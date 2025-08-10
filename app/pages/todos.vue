@@ -5,6 +5,7 @@ definePageMeta({
 const loading = ref(false)
 const newTodo = ref('')
 const newTodoInput = ref(null)
+const { isMobile } = useDisplay()
 
 const emit = defineEmits(['notify'])
 const { data: todos, refresh } = await useFetch('/api/todos')
@@ -70,16 +71,17 @@ async function deleteTodo(todo) {
         </h3>
       </v-card-title>
       <v-card-text>
-        <form class="d-flex align-center gap-2" @submit.prevent="addTodo">
+        <form class="d-flex align-center " @submit.prevent="addTodo">
           <v-text-field
             ref="newTodoInput"
             v-model="newTodo"
             name="todo"
             :disabled="loading"
-            class="flex-1"
+            class="flex-1 mr-2"
             placeholder="Make a Nuxt demo"
             autocomplete="off"
             autofocus
+            hide-details
           />
           <v-btn
             type="submit"
@@ -97,23 +99,24 @@ async function deleteTodo(todo) {
             :key="todo.id"
             class="py-2"
           >
-            <v-list-item-content>
+            <v-list-item>
               <div class="d-flex align-center gap-4 w-100">
                 <span class="text-body-1 flex-grow-1" :class="[todo.completed ? 'text-decoration-line-through text-grey-darken-1' : '']">
                   {{ todo.title }}
                 </span>
                 <v-switch
-                  v-model="todo.completed"
+                  :value="todo.completed"
                   @change="toggleTodo(todo)"
                   hide-details
                   color="primary"
-                  class="flex-shrink-0"
+                  class="flex-shrink-0 pr-2"
+                  :inset="isMobile"
                 />
-                <v-btn icon color="red" @click="deleteTodo(todo)">
-                  <v-icon>mdi-close</v-icon>
+                <v-btn icon size="x-small" color="red" @click="deleteTodo(todo)">
+                  <v-icon size="small">mdi-delete</v-icon>
                 </v-btn>
               </div>
-            </v-list-item-content>
+            </v-list-item>
           </v-list-item>
         </v-list>
       </v-card-text>

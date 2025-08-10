@@ -18,13 +18,21 @@ export default defineNuxtConfig({
         code: 'en',
         name: 'English',
         file: 'en.json',
-        dir: 'ltr'
+        dir: 'ltr',
+        language: 'en-US'
       },
       {
         code: 'ar',
         name: 'Arabic',
         file: 'ar.json',
-        dir: 'rtl'
+        dir: 'rtl',
+        language: 'ar-EG'
+      },
+      {
+        code: 'es',
+        name: 'Spanish',
+        file: 'es.json',
+        dir: 'ltr'
       }
     ],
     defaultLocale: 'ar',

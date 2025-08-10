@@ -25,7 +25,7 @@ function toggleColorMode() {
 watch(
   () => colorMode.preference,
   (val) => {
-    theme.global.name.value = val === 'dark' ? 'dark' : 'light'
+    val === 'dark' ? theme.change('dark') : theme.change('light')
   },
   { immediate: true }
 )

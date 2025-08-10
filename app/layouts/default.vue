@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- Top Bar -->
-    <v-app-bar app flat class="border-b" :theme="theme.global.name.value">
+    <v-app-bar app flat class="border-b" >
       <v-app-bar-nav-icon @click="toggleSidebar" />
       <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
       <v-spacer />
@@ -31,7 +31,7 @@
             </v-list-item-subtitle>
           </v-list-item>
           <v-list-item @click="clear">
-            <v-list-item-icon><v-icon>mdi-logout</v-icon> Logout</v-list-item-icon>
+            <v-icon>mdi-logout</v-icon> Logout
           </v-list-item>
         </v-list>
       </v-menu>
@@ -42,7 +42,7 @@
       <v-navigation-drawer v-model="sidebarOpen" app width="220" class="border-r" temporary>
         <v-list nav>
           <v-list-item v-for="link in navLinks" :key="link.label" :to="link.to" link>
-            <v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
+            <v-list-item><v-icon>{{ link.icon }}</v-icon></v-list-item>
             <v-list-item-title>{{ link.label }}</v-list-item-title>
           </v-list-item>
         </v-list>

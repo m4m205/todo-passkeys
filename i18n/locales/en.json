@@ -1,4 +1,7 @@
 {
   "hello": "Hello",
-  "welcome": "مرحبًا بك في التطبيق! Welcome to the app!"
+  "welcome": "Welcome to the app!",
+  "ar": "Arabic",
+  "en": "English",
+  "es": "Spanish"
 }

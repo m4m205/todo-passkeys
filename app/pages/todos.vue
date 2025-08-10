@@ -5,7 +5,7 @@ definePageMeta({
 const loading = ref(false)
 const newTodo = ref('')
 const newTodoInput = ref(null)
-const { isMobile } = useDisplay()
+const { mobile } = useDisplay()
 
 const emit = defineEmits(['notify'])
 const { data: todos, refresh } = await useFetch('/api/todos')
@@ -71,7 +71,7 @@ async function deleteTodo(todo) {
         </h3>
       </v-card-title>
       <v-card-text>
-        <form class="d-flex align-center " @submit.prevent="addTodo">
+        <form class="d-flex align-center items-center" @submit.prevent="addTodo">
           <v-text-field
             ref="newTodoInput"
             v-model="newTodo"
@@ -105,12 +105,12 @@ async function deleteTodo(todo) {
                   {{ todo.title }}
                 </span>
                 <v-switch
-                  :value="todo.completed"
+                  :value="Boolean(todo.completed)"
                   @change="toggleTodo(todo)"
                   hide-details
                   color="primary"
                   class="flex-shrink-0 pr-2"
-                  :inset="isMobile"
+                  :inset="mobile"
                 />
                 <v-btn icon size="x-small" color="red" @click="deleteTodo(todo)">
                   <v-icon size="small">mdi-delete</v-icon>

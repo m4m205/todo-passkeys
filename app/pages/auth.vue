@@ -37,7 +37,7 @@ async function signIn() {
           Todo List
         </h3>
         <v-btn to="/" color="grey" variant="text" prepend-icon="mdi-arrow-left">
-          Back home
+          {{ $t('backHome') }}
         </v-btn>
       </v-card-title>
       <v-card-text>
@@ -46,31 +46,31 @@ async function signIn() {
             <v-text-field
               v-model="username"
               name="username"
-              label="Username"
+              :label="$t('username')"
               required
             />
             <v-text-field
               v-model="name"
               name="name"
-              label="Full Name"
+              :label="$t('fullName')"
               required
             />
             <v-btn
               type="submit"
               color="primary"
               :disabled="!username"
-            >Sign up</v-btn>
+            >{{ $t('signUp') }}</v-btn>
           </v-form>
-          <v-divider vertical class="mx-4">or</v-divider>
+          <v-divider vertical class="mx-4">{{ $t('or') }}</v-divider>
           <v-form class="d-flex flex-column gap-2" @submit.prevent="signIn">
             <v-text-field
               v-model="username"
-              label="Username"
+              :label="$t('username')"
             />
             <v-btn
               type="submit"
               color="primary"
-            >Sign in</v-btn>
+            >{{ $t('signIn') }}</v-btn>
           </v-form>
         </div>
       </v-card-text>

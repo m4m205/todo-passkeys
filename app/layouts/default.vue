@@ -3,7 +3,7 @@
     <!-- Top Bar -->
     <v-app-bar app flat class="border-b" >
       <v-app-bar-nav-icon @click="toggleSidebar" />
-      <v-toolbar-title class="text-h6">{{ $t('tasky') }}</v-toolbar-title>
+      <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
       <v-spacer />
       <!-- <v-switch
         v-model="isArabic"
@@ -123,5 +123,4 @@ const navLinks = [
 
 <style scoped>
 
-/* Add any custom styles if needed */
 </style>

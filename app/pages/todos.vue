@@ -81,8 +81,8 @@ async function deleteTodo(todo) {
             v-model="newTodo"
             name="todo"
             :disabled="loading"
-            class="flex-1 mr-2"
-            placeholder="Make a Nuxt demo"
+            class="flex-1 me-2"
+            :placeholder="$t('input_placeholder')"
             autocomplete="off"
             autofocus
             hide-details
@@ -113,11 +113,11 @@ async function deleteTodo(todo) {
                   @change="toggleTodo(todo)"
                   hide-details
                   color="primary"
-                  class="flex-shrink-0 pr-2"
+                  class="flex-shrink-0 pe-2"
                   :inset="mobile"
                 />
                 <v-btn icon size="x-small" color="red" @click="deleteTodo(todo)">
-                  <v-icon size="small">mdi-delete</v-icon>
+                  <v-icon size="large">mdi-delete-outline</v-icon>
                 </v-btn>
               </div>
             </v-list-item>

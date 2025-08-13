@@ -12,7 +12,7 @@ const { loggedIn } = useUserSession()
     <v-card-text class="text-center">
       <div v-if="!loggedIn">
         <v-btn color="primary" to="/auth" prepend-icon="mdi-fingerprint">
-          Authenticate
+          {{ $t('authenticate') }}
         </v-btn>
         <v-img src="/tasky.png" alt="Authentication Image" width="250" class="mx-auto my-8" />
       </div>

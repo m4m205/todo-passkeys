@@ -10,5 +10,13 @@
   "signedInAs": "تم تسجيل الدخول كـ",
   "logout": "تسجيل الخروج",
   "developedBy": "بواسطة",
-  "go_to_todos": "AR go_to_todos"
+  "go_to_todos": "AR go_to_todos",
+  "backHome": "العودة إلى الرئيسية",
+  "username": "اسم المستخدم",
+  "fullName": "الاسم الكامل",
+  "signUp": "اشتراك",
+  "signIn": "تسجيل الدخول",
+  "or": "أو",
+  "input_placeholder": "Enter text here...",
+  "authenticate": "التحقق"
 }

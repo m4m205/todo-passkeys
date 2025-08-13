@@ -11,5 +11,13 @@
   "signedInAs": "Signed in as",
   "logout": "Logout",
   "developedBy": "developed by Mahmoud",
-  "go_to_todos": "Go to todo list"
+  "go_to_todos": "Go to todo list",
+  "backHome": "Back home",
+  "username": "Username",
+  "fullName": "Full Name",
+  "signUp": "Sign up",
+  "signIn": "Sign in",
+  "or": "or",
+  "input_placeholder": "Enter text here...",
+  "authenticate": "Authenticate" 
 }

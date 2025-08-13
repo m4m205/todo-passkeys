@@ -3,7 +3,7 @@
     <!-- Top Bar -->
     <v-app-bar app flat class="border-b" >
       <v-app-bar-nav-icon @click="toggleSidebar" />
-      <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
+      <v-toolbar-title class="text-h6">{{ $t('tasky') }}</v-toolbar-title>
       <v-spacer />
       <!-- <v-switch
         v-model="isArabic"
@@ -37,11 +37,11 @@
               {{ user.name }}
             </v-list-item-title>
             <v-list-item-subtitle>
-              Signed in as {{ user?.username }}
+              {{ $t('signedInAs') }} {{ user?.username }}
             </v-list-item-subtitle>
           </v-list-item>
           <v-list-item @click="clear">
-            <v-icon>mdi-logout</v-icon> Logout
+            <v-icon>mdi-logout</v-icon> {{ $t('logout') }}
           </v-list-item>
         </v-list>
       </v-menu>
@@ -66,14 +66,13 @@
     </div>
     <footer class="text-center mt-2">
       <p class="text-sm text-gray-500 dark:text-gray-400">
-        {{ $t('welcome') }} ❤️ by
         <a
           href="https://almorahlee.com"
           target="_blank"
           rel="noopener noreferrer"
           class="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          Mahmoud
+          {{ $t('developedBy') }}
         </a>
       </p>
     </footer>
@@ -123,5 +122,6 @@ const navLinks = [
 </script>
 
 <style scoped>
+
 /* Add any custom styles if needed */
 </style>

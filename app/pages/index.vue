@@ -18,11 +18,11 @@ const { loggedIn } = useUserSession()
       </div>
       <div v-else>
         <v-btn color="primary" to="/todos" prepend-icon="mdi-format-list-bulleted">
-          Go to Todos
+          {{ $t('go_to_todos') }}
         </v-btn>
       </div>
       <p class="text-body-1">
-        Welcome to <span class="text-primary font-weight-bold">TaskyDoo</span>.
+        {{ $t('welcome') }} <span class="text-primary font-weight-bold">TaskyDoo</span>.
       </p>
     </v-card-text>
   </v-card>

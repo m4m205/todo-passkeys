@@ -3,5 +3,13 @@
   "welcome": "Welcome to the app!",
   "ar": "Arabic",
   "en": "English",
-  "es": "Spanish"
+  "es": "Spanish",
+  "tasky": "TaskyDoo",
+  "off": "off",
+  "by": "بواسطة",
+  "todoList": "Todo List",
+  "signedInAs": "Signed in as",
+  "logout": "Logout",
+  "developedBy": "developed by Mahmoud",
+  "go_to_todos": "Go to todo list"
 }

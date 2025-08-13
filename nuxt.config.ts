@@ -28,12 +28,6 @@ export default defineNuxtConfig({
         dir: 'rtl',
         language: 'ar-EG'
       },
-      {
-        code: 'es',
-        name: 'Spanish',
-        file: 'es.json',
-        dir: 'ltr'
-      }
     ],
     defaultLocale: 'ar',
     langDir: 'locales/',

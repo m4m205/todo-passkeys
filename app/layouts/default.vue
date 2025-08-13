@@ -5,13 +5,23 @@
       <v-app-bar-nav-icon @click="toggleSidebar" />
       <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
       <v-spacer />
-      <v-switch
+      <!-- <v-switch
         v-model="isArabic"
         :label="isArabic ? $t('ar') : $t('en')"
         @change="switchLocale"
         hide-details
         class="mx-2"
-      />
+      /> -->
+      <!-- <NuxtLink v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
+        <span class="mr-2">
+          {{ locale.name }}
+        </span>
+      </NuxtLink> -->
+        <a href="#" v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="setLocale(locale.code)">
+       <span class="mr-2">
+          {{ locale.name }}
+        </span>
+  </a>
       <v-btn icon @click="toggleColorMode">
         <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-moon-waning-crescent' : 'mdi-white-balance-sunny' }}</v-icon>
       </v-btn>
@@ -78,7 +88,7 @@ import { useTheme } from 'vuetify'
 
 const { user, clear } = useUserSession()
 const sidebarOpen = ref(false)
-const { locale } = useI18n()
+const { locale, locales, setLocale } = useI18n()
 const colorMode = useColorMode()
 const theme = useTheme()
 
@@ -87,6 +97,11 @@ const isArabic = computed({
   set: (val: boolean) => {
     locale.value = val ? 'ar' : 'en'
   }
+})
+const switchLocalePath = useSwitchLocalePath()
+
+const availableLocales = computed(() => {
+  return locales.value.filter(i => i.code !== locale.value)
 })
 
 function switchLocale() {

@@ -1,11 +1,25 @@
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'TaksyDoo',
+      head: {
+        htmlAttrs: {
+          style: 'background-color: #111; color: #f0f0f0;'
+        },
+      },
+      meta: [
+        { name: 'TaskyDoo', content: 'TaskyDoo to-do list' }
+      ]
+    }
+  },
   modules: [
     '@nuxthub/core',
     'nuxt-auth-utils',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
     'vuetify-nuxt-module',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxt/content',
   ],
   colorMode: {
     classSuffix: '',

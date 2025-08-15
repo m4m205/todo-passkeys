@@ -64,13 +64,13 @@
         </v-container>
       </main>
     </div>
-    <footer class="text-center mt-2">
-      <p class="text-sm text-gray-500 dark:text-gray-400">
+    <footer class="text-center mt-2 mb-4">
+      <p>
         <a
           href="https://almorahlee.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-600 dark:text-blue-400 hover:underline"
+          class="text-primary"
         >
           {{ $t('developedBy') }}
         </a>

@@ -1,4 +1,17 @@
 export default defineNuxtConfig({
+    app: {
+    head: {
+      title: 'TaksyDoo',
+      head: {
+        htmlAttrs: {
+          style: 'background-color: #111; color: #f0f0f0;'
+        },
+      },
+      meta: [
+        { name: 'TaskyDoo', content: 'TaskyDoo to-do list' }
+      ]
+    }
+  },
   modules: [
     '@nuxthub/core',
     'nuxt-auth-utils',

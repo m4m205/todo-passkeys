@@ -1,7 +1,12 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- Top Bar -->
-    <v-app-bar app flat class="border-b" >
+    <v-app-bar
+      app
+      flat
+      class="border-b"
+      :theme="colorMode.preference"
+    >
       <v-app-bar-nav-icon @click="toggleSidebar" />
       <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
       <v-spacer />
@@ -58,11 +63,11 @@
         </v-list>
       </v-navigation-drawer>
       <!-- Main Content -->
-      <main class="flex-1 p-4 overflow-auto">
-        <v-container fluid>
+      <v-main class="">
+        <v-container fluid class="py-4">
           <slot />
         </v-container>
-      </main>
+      </v-main>
     </div>
     <footer class="text-center mt-2 mb-4">
       <p>
@@ -123,4 +128,16 @@ const navLinks = [
 
 <style scoped>
 
+</style>
+
+<style>
+/* Ensure app bar follows color-mode immediately on first paint */
+html.dark .v-app-bar {
+  background-color: #181818 !important;
+  color: #FAFAFA !important;
+}
+html.light .v-app-bar {
+  background-color: #FAFAFA !important;
+  color: #181818 !important;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <v-layout name="dashboard">
-    Mahmoud
+    <DemoDefaultDashboard />
   </v-layout>
 </template>
 

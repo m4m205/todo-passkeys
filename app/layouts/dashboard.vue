@@ -10,7 +10,7 @@ const customizer = useCustomizerStore()
       <DashboardVerticalHeader />
 
       <v-main class="page-wrapper">
-        <v-container fluid>
+        <v-container fluid >
           <div>
             <!-- Loader start -->
             <DashboardLoaderWrapper />

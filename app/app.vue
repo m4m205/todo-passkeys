@@ -15,8 +15,16 @@ function showSnackbar({ text, color = 'success' }) {
 
 const layout = computed(() => {
   // If the route path starts with '/dashboard', use the 'admin' layout
-  if (route.path.startsWith('/dashboard')) {
+  if (route.path.startsWith('/dashboard')
+      || route.path.startsWith('/samplePage')
+  ) {
     return 'dashboard'
+  }
+
+    if (route.path.startsWith('/error')
+    || route.path.startsWith('/register')
+    || route.path.startsWith('/login1')) {
+    return 'blank'
   }
   
   // Otherwise, use the 'default' layout

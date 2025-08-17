@@ -1,6 +1,6 @@
 <template>
   <v-layout name="dashboard">
-    <h1>Dashboard eee</h1>
+    Mahmoud
   </v-layout>
 </template>
 

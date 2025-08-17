@@ -70,7 +70,7 @@ const sidebarItem: menu[] = [
   {
     title: 'Sample Page',
     icon: ChromeOutlined,
-    to: '/sample-page'
+    to: '/samplePage'
   },
   {
     title: 'Documentation',

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useColorMode } from '#imports'
 import { useCustomizerStore } from '../../../stores/customizer';
 // icons
 import { MenuFoldOutlined, SearchOutlined, GithubOutlined } from '@ant-design/icons-vue';
@@ -9,6 +10,11 @@ import Searchbar from './SearchBarPanel.vue';
 import ProfileDD from './ProfileDD.vue';
 
 const customizer = useCustomizerStore();
+const colorMode = useColorMode();
+
+function toggleColorMode() {
+  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+}
 </script>
 
 <template>
@@ -74,19 +80,8 @@ const customizer = useCustomizerStore();
     <!---right part -->
     <!-- ---------------------------------------------- -->
 
-    <!-- ---------------------------------------------- -->
-    <!-- Github -->
-    <!-- ---------------------------------------------- -->
-    <v-btn
-      icon
-      class="text-secondary hidden-sm-and-down d-flex"
-      color="darkText"
-      rounded="sm"
-      variant="text"
-      href="https://github.com/codedthemes/mantis-free-vuetify-vuejs-admin-template"
-      target="_blank"
-    >
-      <GithubOutlined :style="{ fontSize: '16px' }" />
+    <v-btn icon @click="toggleColorMode">
+      <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-moon-waning-crescent' : 'mdi-white-balance-sunny' }}</v-icon>
     </v-btn>
 
     <!-- ---------------------------------------------- -->

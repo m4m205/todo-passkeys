@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/i18n',
     'vuetify-nuxt-module',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@pinia/nuxt',
   ],
   colorMode: {
     classSuffix: '',

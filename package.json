@@ -9,17 +9,22 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
     "@iconify-json/ph": "^1.2.1",
     "@nuxt/eslint": "^0.6.0",
     "@nuxthub/core": "^0.9.0",
     "@nuxtjs/i18n": "^10.0.4",
+    "@pinia/nuxt": "^0.11.2",
     "@simplewebauthn/browser": "^11.0.0",
     "@simplewebauthn/server": "^11.0.0",
+    "ant-design-vue": "^4.2.6",
     "drizzle-kit": "^0.26.2",
     "drizzle-orm": "0.35.3",
     "h3-zod": "^0.5.3",
     "nuxt": "^3.13.2",
     "nuxt-auth-utils": "^0.5.1",
+    "pinia": "^3.0.3",
+    "vue3-perfect-scrollbar": "^2.0.0",
     "vuetify-nuxt-module": "0.18.7",
     "zod": "^3.23.8"
   },
@@ -29,7 +34,9 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "eslint": "^9.13.0",
     "typescript": "5.6.3",
-    "wrangler": "^3.82.0"
+    "wrangler": "^3.82.0",
+    "sass": "^1.90.0",
+    "sass-loader": "^16.0.5"
   },
   "packageManager": "pnpm@9.12.2"
 }

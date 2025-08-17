@@ -1,15 +1,27 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useTheme } from 'vuetify'
+import '@/scss/style.scss'
 const { loggedIn } = useUserSession()
 const colorMode = useColorMode()
 const theme = useTheme()
+const route = useRoute();
 
 const snackbar = ref({ show: false, text: '', color: 'success' })
 
 function showSnackbar({ text, color = 'success' }) {
   snackbar.value = { show: true, text, color }
 }
+
+const layout = computed(() => {
+  // If the route path starts with '/dashboard', use the 'admin' layout
+  if (route.path.startsWith('/dashboard')) {
+    return 'dashboard'
+  }
+  
+  // Otherwise, use the 'default' layout
+  return 'default'
+})
 
 watch(loggedIn, () => {
   if (!loggedIn.value) {
@@ -48,7 +60,7 @@ useSeoMeta({
 
 <template>
   <v-app>
-    <NuxtLayout>
+    <NuxtLayout :name="layout">
       <NuxtPage @notify="showSnackbar" />
     </NuxtLayout>
     <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="3000" location="top right">
@@ -58,5 +70,6 @@ useSeoMeta({
 </template>
 
 <style lang="postcss">
+
 
 </style>

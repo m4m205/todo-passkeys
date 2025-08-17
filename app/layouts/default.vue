@@ -36,7 +36,7 @@
             <v-icon>mdi-account-circle</v-icon>
           </v-btn>
         </template>
-        <v-list>
+nuxt        <v-list>
           <v-list-item>
             <v-list-item-title>
               {{ user.name }}
@@ -63,7 +63,7 @@
         </v-list>
       </v-navigation-drawer>
       <!-- Main Content -->
-      <v-main class="">
+      <v-main class="bg-background">
         <v-container fluid class="py-4">
           <slot />
         </v-container>
@@ -122,7 +122,9 @@ function toggleColorMode() {
 
 const navLinks = [
   { label: 'Todos', icon: 'mdi-format-list-bulleted', to: '/todos' },
-  { label: 'Auth', icon: 'mdi-account', to: '/auth' }
+  { label: 'Auth', icon: 'mdi-account', to: '/auth' },
+  { label: 'Dashboard', icon: 'mdi-view-dashboard', to: '/dashboard' },
+  { label: 'Settings', icon: 'mdi-cog', to: '/settings' }
 ]
 </script>
 

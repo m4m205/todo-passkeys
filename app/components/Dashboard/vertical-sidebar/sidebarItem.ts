@@ -72,15 +72,15 @@ const sidebarItem: menu[] = [
     icon: ChromeOutlined,
     to: '/samplePage'
   },
-  {
-    title: 'Documentation',
-    icon: QuestionOutlined,
-    to: 'https://codedthemes.gitbook.io/mantis-vuetify/',
-    type: 'external',
-    chip: 'gitbook',
-    chipColor: 'secondary',
-    chipVariant: 'flat'
-  }
+  // {
+  //   title: 'Documentation',
+  //   icon: QuestionOutlined,
+  //   to: 'https://codedthemes.gitbook.io/mantis-vuetify/',
+  //   type: 'external',
+  //   chip: 'gitbook',
+  //   chipColor: 'secondary',
+  //   chipVariant: 'flat'
+  // }
 ];
 
 export default sidebarItem;

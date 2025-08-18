@@ -78,10 +78,11 @@ export default defineNuxtConfig({
       scan: true
     }
   },
+  css: [
+    '~/scss/style.scss'
+  ],
   vuetify: {
-    moduleOptions: {
-      /* module specific options */
-    },
+    moduleOptions: {},
     vuetifyOptions: {
       locale: {
         rtl: {

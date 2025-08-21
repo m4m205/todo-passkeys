@@ -5,7 +5,6 @@
       app
       flat
       class="border-b"
-      :theme="colorMode.preference"
     >
       <v-app-bar-nav-icon @click="toggleSidebar" />
       <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
@@ -88,13 +87,11 @@ nuxt        <v-list>
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useColorMode } from '#imports'
-import { useTheme } from 'vuetify'
 
 const { user, clear } = useUserSession()
 const sidebarOpen = ref(false)
 const { locale, locales, setLocale } = useI18n()
 const colorMode = useColorMode()
-const theme = useTheme()
 
 const isArabic = computed({
   get: () => locale.value === 'ar',

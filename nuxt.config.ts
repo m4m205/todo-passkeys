@@ -42,8 +42,7 @@ export default defineNuxtConfig({
       },
     ],
     defaultLocale: 'ar',
-    langDir: 'locales/',
-    lazy: true,
+  langDir: 'locales/',
     strategy: 'no_prefix',
     detectBrowserLanguage: {
       useCookie: true,
@@ -73,16 +72,15 @@ export default defineNuxtConfig({
       }
     }
   },
-  icon: {
-    clientBundle: {
-      scan: true
-    }
-  },
   css: [
-    '~/scss/style.scss'
+  // '@/assets/css/globals.scss'
   ],
   vuetify: {
-    moduleOptions: {},
+    moduleOptions: {
+      // styles: { configFile: 'assets/css/components.scss' },
+      // disableVuetifyStyles: true,
+      // disableModernSassCompiler: true,
+    },
     vuetifyOptions: {
       locale: {
         rtl: {
@@ -92,7 +90,6 @@ export default defineNuxtConfig({
         locale: 'ar',
       },
       theme: {
-        defaultTheme: 'dark',
         themes: {
           light: {
             dark: false,
@@ -128,6 +125,20 @@ export default defineNuxtConfig({
           }
         }
       }
+    }
+  },
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         additionalData: '@import "@/scss/style.scss";'
+  //       }
+  //     }
+  //   }
+  // },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_BASE || 'http://localhost:3000/api'
     }
   }
 })

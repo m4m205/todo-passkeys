@@ -136,6 +136,17 @@ export default defineNuxtConfig({
   //     }
   //   }
   // },
+   colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'dark', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage', // or 'sessionStorage' or 'cookie'
+    storageKey: 'nuxt-color-mode'
+  },
   runtimeConfig: {
     public: {
       apiBase: process.env.API_BASE || 'http://localhost:3000/api'

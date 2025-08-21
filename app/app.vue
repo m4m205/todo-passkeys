@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useTheme } from 'vuetify'
-import 'ant-design-vue/dist/reset.css';
+// import 'ant-design-vue/dist/reset.css';
 
 const { loggedIn } = useUserSession()
 const colorMode = useColorMode()

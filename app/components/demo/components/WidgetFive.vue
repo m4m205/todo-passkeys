@@ -42,8 +42,8 @@ const fivecards = shallowRef([
 <template>
   <v-row class="my-0">
     <v-col cols="12" sm="6" md="3" v-for="(card5, i) in fivecards" :key="i" :value="card5">
-      <v-card elevation="0" variant="flat">
-        <v-card variant="outlined">
+      <v-card elevation="0" border>
+        <v-card variant="flat">
           <v-card-text>
             <div class="d-flex align-items-center justify-space-between">
               <div>

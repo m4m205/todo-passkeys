@@ -33,10 +33,9 @@
     "@nuxt/eslint-config": "^0.6.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "eslint": "^9.13.0",
+    "sass-embedded": "^1.90.0",
     "typescript": "5.6.3",
-    "wrangler": "^3.82.0",
-    "sass": "^1.90.0",
-    "sass-loader": "^16.0.5"
+    "wrangler": "^3.82.0"
   },
   "packageManager": "pnpm@9.12.2"
 }

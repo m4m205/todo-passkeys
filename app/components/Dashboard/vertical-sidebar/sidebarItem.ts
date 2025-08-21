@@ -53,11 +53,6 @@ const sidebarItem: menu[] = [
   },
   { header: 'Utilities' },
   {
-    title: 'Typography',
-    icon: FontSizeOutlined,
-    to: '/typography'
-  },
-  {
     title: 'Color',
     icon: BgColorsOutlined,
     to: '/colors'
@@ -67,26 +62,12 @@ const sidebarItem: menu[] = [
     icon: BarcodeOutlined,
     to: '/shadow'
   },
-  {
-    title: 'Ant Icons',
-    icon: CrownOutlined,
-    to: '/icon/ant'
-  },
   { header: 'Support' },
   {
     title: 'Sample Page',
     icon: ChromeOutlined,
     to: '/samplePage'
   },
-  // {
-  //   title: 'Documentation',
-  //   icon: QuestionOutlined,
-  //   to: 'https://codedthemes.gitbook.io/mantis-vuetify/',
-  //   type: 'external',
-  //   chip: 'gitbook',
-  //   chipColor: 'secondary',
-  //   chipVariant: 'flat'
-  // }
 ];
 
 export default sidebarItem;

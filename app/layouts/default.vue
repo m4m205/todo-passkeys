@@ -9,25 +9,13 @@
       <v-app-bar-nav-icon @click="toggleSidebar" />
       <v-toolbar-title class="text-h6">Tasky</v-toolbar-title>
       <v-spacer />
-      <!-- <v-switch
-        v-model="isArabic"
-        :label="isArabic ? $t('ar') : $t('en')"
-        @change="switchLocale"
-        hide-details
-        class="mx-2"
-      /> -->
-      <!-- <NuxtLink v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
-        <span class="mr-2">
-          {{ locale.name }}
-        </span>
-      </NuxtLink> -->
         <a href="#" v-for="locale in availableLocales" :key="locale.code" @click.prevent.stop="setLocale(locale.code)">
        <span class="mr-2">
           {{ locale.name }}
         </span>
   </a>
       <v-btn icon @click="toggleColorMode">
-        <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-moon-waning-crescent' : 'mdi-white-balance-sunny' }}</v-icon>
+        <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-white-balance-sunny' : 'mdi-moon-waning-crescent' }}</v-icon>
       </v-btn>
       <v-menu v-if="user" offset-y>
         <template #activator="{ props }">
@@ -121,7 +109,7 @@ function toggleColorMode() {
 const navLinks = [
   { label: 'Todos', icon: 'mdi-format-list-bulleted', to: '/todos' },
   { label: 'Auth', icon: 'mdi-account', to: '/auth' },
-  // { label: 'Dashboard', icon: 'mdi-view-dashboard', to: '/dashboard' },
+  { label: 'Dashboard', icon: 'mdi-view-dashboard', to: '/dashboard' },
   // { label: 'Settings', icon: 'mdi-cog', to: '/settings' }
 ]
 </script>

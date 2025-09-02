@@ -81,7 +81,7 @@ function toggleColorMode() {
     <!-- ---------------------------------------------- -->
 
     <v-btn icon @click="toggleColorMode">
-      <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-moon-waning-crescent' : 'mdi-white-balance-sunny' }}</v-icon>
+      <v-icon>{{ colorMode.preference === 'dark' ? 'mdi-white-balance-sunny' : 'mdi-moon-waning-crescent' }}</v-icon>
     </v-btn>
 
     <!-- ---------------------------------------------- -->

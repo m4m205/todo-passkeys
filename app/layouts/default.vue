@@ -120,8 +120,8 @@ function toggleColorMode() {
 const navLinks = [
   { label: 'Todos', icon: 'mdi-format-list-bulleted', to: '/todos' },
   { label: 'Auth', icon: 'mdi-account', to: '/auth' },
-  { label: 'Dashboard', icon: 'mdi-view-dashboard', to: '/dashboard' },
-  { label: 'Settings', icon: 'mdi-cog', to: '/settings' }
+  // { label: 'Dashboard', icon: 'mdi-view-dashboard', to: '/dashboard' },
+  // { label: 'Settings', icon: 'mdi-cog', to: '/settings' }
 ]
 </script>
 

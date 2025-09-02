@@ -19,11 +19,6 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@pinia/nuxt',
   ],
-  colorMode: {
-    classSuffix: '',
-    preference: 'dark',
-    fallback: 'dark'
-  },
   i18n: {
     locales: [
       {

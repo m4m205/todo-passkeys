@@ -2,8 +2,7 @@
 definePageMeta({
   middleware: 'guest'
 })
-import { useColorMode } from '#imports'
-const colorMode = useColorMode()
+
 const emit = defineEmits(['notify'])
 const { fetch } = useUserSession()
 const { register, authenticate } = useWebAuthn()
@@ -32,7 +31,7 @@ async function signIn() {
 </script>
 
 <template>
-  <div class="d-flex justify-center align-center fill-height" :theme="colorMode.value">
+  <div class="d-flex justify-center align-center fill-height">
     <v-card class="pa-4" max-width="750" min-width="400">
       <v-card-title>
         <h3 class="text-h6">

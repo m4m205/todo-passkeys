@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen flex flex-col">
-    <!-- Top Bar -->
-    <v-app-bar
-      app
-      flat
+    <v-theme-provider class="min-h-screen flex flex-col" :theme="colorMode.value" with-background>
+      <!-- Top Bar -->
+      <v-app-bar
+        app
+        flat
       class="border-b"
     >
       <v-app-bar-nav-icon @click="toggleSidebar" />
@@ -62,9 +62,10 @@ nuxt        <v-list>
         </v-list>
       </v-navigation-drawer>
       <!-- Main Content -->
-      <v-main class="bg-background">
+
+      <v-main>
         <v-container fluid class="py-4">
-          <slot />
+            <slot />
         </v-container>
       </v-main>
     </div>
@@ -80,7 +81,7 @@ nuxt        <v-list>
         </a>
       </p>
     </footer>
-  </div>
+  </v-theme-provider>
 </template>
 
 <script setup lang="ts">

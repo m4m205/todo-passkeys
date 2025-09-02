@@ -6,8 +6,8 @@ const loading = ref(false)
 const newTodo = ref('')
 const newTodoInput = ref(null)
 const { mobile } = useDisplay()
-import { useColorMode } from '#imports'
-const colorMode = useColorMode()
+// import { useColorMode } from '#imports'
+// const colorMode = useColorMode()
 
 const emit = defineEmits(['notify'])
 const { data: todos, refresh } = await useFetch('/api/todos', {
@@ -68,7 +68,7 @@ async function deleteTodo(todo) {
 
 <template>
   <div class="d-flex justify-center align-center fill-height">
-    <v-card class="pa-4" max-width="750" min-width="400" mx-auto :theme="colorMode.value">
+    <v-card class="pa-4" max-width="750" min-width="400" mx-auto>
       <v-card-title>
         <h3 class="text-h6">
           <NuxtLink to="/" class="text-decoration-none">

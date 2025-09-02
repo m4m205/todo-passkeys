@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useColorMode } from '#imports'
 const { loggedIn } = useUserSession()
-const colorMode = useColorMode()
 </script>
 
 <template>
-  <v-card class="pa-4 mx-auto" min-width="400" max-width="750" :theme="colorMode.value">
+  <v-card class="pa-4 mx-auto" min-width="400" max-width="750">
     <v-card-title>
       <h3 class="text-h6">
         Todo List
